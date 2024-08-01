@@ -30,11 +30,11 @@
         <br>
         <div class="text-center"><h2>Semester Details</h2></div>
         <br>
-        <% if (student) { %> <!-- Check if student data exists -->
+        <% if (semester) { %> <!-- Check if student data exists -->
             <div>
                 <p><b>Semester Name:</b><br> <%= semester.semestername %></p>
-                <p><b>Module Name:</b><br> <%= semester.moudlename %></p>
-                <p><b>Grades:</b><br> <%= semester.grades %></p>
+                <p><b>Module Name:</b><br> <%= semester.modulename %></p>
+                <p><b>Grades:</b><br> <%= semester.grade %></p>
                 <p><b>Cover Image</b><br> <img src = "/images/<%= semester.coverimage %>" width="20%"></p> 
             </div>
         <% } else { %>

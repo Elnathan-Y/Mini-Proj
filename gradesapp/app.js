@@ -62,7 +62,7 @@ app.get('/',(req,res)=>{
 
 
 
-app.get('/semester/:id',(req,res)=>{
+app.get('/semesters/:id',(req,res)=>{
     const semesterId=req.params.id;
     const sql="SELECT * FROM semesters WHERE semesterId = ?";
     connection.query(sql,[semesterId],(error,results)=>{
@@ -101,7 +101,7 @@ app.post('/addSemester',upload.single('image'),(req,res)=>{
     
 });
 
-app.get('/editSemester/:id',upload.single('image'),(req,res)=>{
+app.get('/semester/:id/update',upload.single('image'),(req,res)=>{
     const semesterId =req.params.id;
     const sql ='SELECT * FROM semesters WHERE semesterId =?';
     //Fetch data from MYSQL based on ID 
@@ -113,15 +113,15 @@ app.get('/editSemester/:id',upload.single('image'),(req,res)=>{
         //CHECK IF ANY Student WITH THE GIVEN ID WAS FOUND 
         if (results.length>0){
             //RENDER HTML PAGE WITH Student DATA
-            res.render('editSemester',{semesters:results[0]});
+            res.render('editSemester',{semester:results[0]});
         
-        }else{
+        } else {
             res.status(404).send('Semester not found');
         }
     });
 });
 
-app.post('/editSemester/:id',upload.single('image'),(req,res)=>{
+app.post('/semester/:id/update',upload.single('image'),(req,res)=>{
     const semesterId=req.params.id;
     //extract product data from the request body
     const {semestername,modulename,grade}=req.body;

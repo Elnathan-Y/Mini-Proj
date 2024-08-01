@@ -29,7 +29,7 @@
         <div class="text-center"><h2>Update Semester</h2></div>
         <br>
         <div class="text-center">
-          <% if (semester){ %> 
+          <% if (semester) { %> 
             <form action="/editSemester/<%= semester.semesterId %>" method="POST" enctype="multipart/form-data">
                 <label for="semestername">Semester Name:</label><br>
                 <input type="text" id="semestername" name="semestername" value = <%= semester.semestername %> required><br><br>
